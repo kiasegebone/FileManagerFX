@@ -28,7 +28,18 @@ public class ListsView extends ViewTyp{
        }
     public void vIEW(){
         ObservableList<FileAdapter> files = FXCollections.observableArrayList();
-        for(File file:list){
+        /* ********OpenRefactory Warning********
+		 Possible null pointer Dereference!
+		 Path: 
+			File: ViewGenerator.java, Line: 24
+				listView.vIEW();
+				 Information about field list (from class ListsView) is passed through the method call. This later results into a null pointer dereference
+			File: ListsView.java, Line: 31
+				list
+				list is used in iteration.
+				The expression is enclosed inside an Enhanced For statement.
+		*/
+		for(File file:list){
             files.add(new FileAdapter(file));
         }
         TableColumn<FileAdapter, ImageView> iconColumn = new TableColumn<>("Icon");
